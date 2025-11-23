@@ -35,6 +35,12 @@ android {
     }
 }
 
+/// ✅ FIX DUPLICATE CLASS ERROR
+configurations.all {
+    exclude(group = "com.google.guava", module = "listenablefuture")
+}
+
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -42,6 +48,14 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.compiler)
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+
+    // DataStore
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
